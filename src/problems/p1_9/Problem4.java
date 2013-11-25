@@ -38,7 +38,7 @@ public class Problem4 {
 		int num = 999 * 999;
 		for (int i = num; i > 0; i--) {
 			if (isPalindrome2(i)) {
-				for (int j = 100; j < 1000; j++) {
+				for (int j = 1000; j > 100; j--) {
 					if (i % j == 0 && i / j > 100 && i / j < 1000) {
 						System.out.println("Answer is : " + i);
 						return;
