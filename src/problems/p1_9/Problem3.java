@@ -1,4 +1,4 @@
-package problems;
+package problems.p1_9;
 /**
  * Largest prime factor
  * Problem 3

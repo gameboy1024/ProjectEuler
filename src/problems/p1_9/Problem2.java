@@ -1,4 +1,4 @@
-package problems;
+package problems.p1_9;
 /**
  * Even Fibonacci numbers
  * Problem 2

@@ -1,4 +1,4 @@
-package problems;
+package problems.p1_9;
 
 /**
  * Multiples of 3 and 5

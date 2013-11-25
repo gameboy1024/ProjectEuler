@@ -1,4 +1,4 @@
-package problems;
+package problems.p1_9;
 /**
  * Special Pythagorean triplet
  * Problem 9

@@ -1,4 +1,4 @@
-package problems;
+package problems.p1_9;
 /**
  * 10001st prime
  * Problem 7

@@ -1,4 +1,4 @@
-package problems;
+package problems.p1_9;
 /**
  * Largest product in a series
  * Problem 8
