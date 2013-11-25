@@ -1,4 +1,4 @@
-package views;
+package problems.p10_19;
 /**
  * Large sum
  * Problem 13
