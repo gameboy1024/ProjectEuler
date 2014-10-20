@@ -29,6 +29,7 @@ import math
 
 def IsPrime(n):
   if n < 2: return False
+  if n == 2: return True
   for i in xrange(2, int(math.sqrt(n)) + 1):
     if n % i == 0:
       return False
