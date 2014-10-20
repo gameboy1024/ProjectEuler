@@ -9,7 +9,8 @@
 
   NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
   
-  Answer: 100 Completed on Wed, 15 Oct 2014, 23:42
+  Answer: 748317 Completed on Mon, 20 Oct 2014, 16:33
+
   https://projecteuler.net/problem=37
   
   @author Botu Sun
