@@ -12,8 +12,8 @@
 
   Which prime, below one-million, can be written as the sum of the most consecutive primes?
 
-  Answer: 296962999629 Completed on Wed, 22 Oct 2014, 13:16
-  https://projecteuler.net/problem=49
+  Answer: 997651 Completed on Wed, 22 Oct 2014, 15:23.46
+  https://projecteuler.net/problem=50
   
   @author Botu Sun
 '''
