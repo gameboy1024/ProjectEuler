@@ -49,6 +49,5 @@ while True:
   count += 1
   if prime_number * 10 < total:
     break
-  print count
   
 print 2 * count - 1
