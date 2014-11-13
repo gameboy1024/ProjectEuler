@@ -14,7 +14,8 @@
   nCr =	n! / r!(n−r)!, where r ≤ n, n! = n×(n−1)×...×3×2×1, and 0! = 1.
   It is not until n = 23, that a value exceeds one-million: 23C10 = 1144066.
 
-  How many, not necessarily distinct, values of  nCr, for 1 ≤ n ≤ 100, are greater than one-million?
+  How many, not necessarily distinct, values of  nCr, for 1 ≤ n ≤ 100, are 
+  greater than one-million?
 
   Answer: 4075 Completed on Tue, 28 Oct 2014, 21:05.17
   https://projecteuler.net/problem=53

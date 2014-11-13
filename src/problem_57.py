@@ -1,16 +1,43 @@
 # -*- coding: utf-8 -*-
 '''
-  Powerful digit sum
-  Problem 56
-  
-  A googol (10100) is a massive number: one followed by one-hundred zeros; 100100 is almost unimaginably large: one followed by two-hundred zeros. Despite their size, the sum of the digits in each number is only 1.
+  Square root convergents
+  Problem 57
 
-  Considering natural numbers of the form, ab, where a, b < 100, what is the maximum digital sum?
+  It is possible to show that the square root of two can be expressed as an 
+  infinite continued fraction.
 
-  Answer: 972 Completed on Thu, 13 Nov 2014, 15:29
-  https://projecteuler.net/problem=56
+  √ 2 = 1 + 1/(2 + 1/(2 + 1/(2 + ... ))) = 1.414213...
+
+  By expanding this for the first four iterations, we get:
+
+  1 + 1/2 = 3/2 = 1.5
+  1 + 1/(2 + 1/2) = 7/5 = 1.4
+  1 + 1/(2 + 1/(2 + 1/2)) = 17/12 = 1.41666...
+  1 + 1/(2 + 1/(2 + 1/(2 + 1/2))) = 41/29 = 1.41379...
+
+  The next three expansions are 99/70, 239/169, and 577/408, but the eighth 
+  expansion, 1393/985, is the first example where the number of digits in the 
+  numerator exceeds the number of digits in the denominator.
+
+  In the first one-thousand expansions, how many fractions contain a numerator 
+  with more digits than denominator?
+
+  Answer: 153 Completed on Thu, 13 Nov 2014, 15:37
+  https://projecteuler.net/problem=57
   
   @author Botu Sun
 '''
 
-from lib import math_utils as math
+count = 0
+nom = 3
+denom = 2
+
+for i in xrange(0, 1000):
+  if len(str(nom)) > len(str(denom)):
+    count += 1
+  tmp_denom = denom
+  tmp_nom = nom
+  denom = tmp_denom + tmp_nom
+  nom = denom + tmp_denom
+
+print count

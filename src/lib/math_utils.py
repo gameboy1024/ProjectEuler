@@ -100,5 +100,5 @@ class PrimeChecker(object):
   
   def is_prime(self, n):
     # TODO: handle keyerror exception.
-    return self._prime_map[n]
+    return n in self._prime_map
     
