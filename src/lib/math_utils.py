@@ -77,17 +77,17 @@ def is_prime(n):
 class PrimeChecker(object):
   '''A more advanced prime checker that uses elimination as base. Quicker.'''
   def __init__(self, limit):
-    self._limit = limit
+    self._limit = int(limit)
     self._prime_map = {}
     self._prime_list = []
-    numbers = [True] * (limit + 1)
-    for i in xrange(2, limit / 2 + 1):
+    numbers = [True] * (self._limit + 1)
+    for i in xrange(2, self._limit / 2 + 1):
       if numbers[i] == True:
         j = i * 2
-        while (j <= limit):
+        while (j <= self._limit):
           numbers[j] = False
           j += i
-    for i in xrange(2, limit + 1):
+    for i in xrange(2, self._limit + 1):
       if numbers[i] == True:
         self._prime_map[i] = True
         self._prime_list.append(i)
@@ -100,5 +100,8 @@ class PrimeChecker(object):
   
   def is_prime(self, n):
     # TODO: handle keyerror exception.
-    return n in self._prime_map
+    if n > self._limit:
+      return is_prime(n)
+    else:
+      return n in self._prime_map
     
