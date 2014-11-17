@@ -57,7 +57,7 @@ def power_list(a, b, reverse=False):
       result[j] %= 10
       # print carry
       j += 1
-  if reverse:
+  if not reverse:
     result = result[::-1]
   return result
   
