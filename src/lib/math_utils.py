@@ -7,6 +7,10 @@ import math
 def is_even(n):
   return n % 2 == 0
 
+def is_square(n):
+  root = math.sqrt(n)
+  return root == int(root)
+  
 def is_palindrome(n):
   '''Test if a number/str is a palindrome, like 12321.'''
   s = str(n)

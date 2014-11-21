@@ -55,4 +55,4 @@ def get_convergent(n, limit):
   nom += denom * get_number(n)
   return nom, denom
   
-print sum([int(i) for i in str(get_convergent(0, 10 - 1)[0])])
+print sum([int(i) for i in str(get_convergent(0, 100 - 1)[0])])
