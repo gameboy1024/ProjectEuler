@@ -13,6 +13,7 @@ ProjectEuler
 - What's in this repository?
 
     Here you can find my solutions to Problems in the Project Euler.
+    Please do not read my solution before any attempt to solve the problem by yourself.
     They might not be the most efficient solution, but I make comments for what could be improved in the code where it's      possible after reading the solution pdf.
     
 - Other
