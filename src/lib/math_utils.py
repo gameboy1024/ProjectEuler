@@ -91,6 +91,9 @@ class PrimeChecker(object):
     self._limit = int(limit)
     self._prime_map = {}
     self._prime_list = []
+    self.seive()
+    
+  def seive(self):
     numbers = [True] * (self._limit + 1)
     for i in xrange(2, self._limit / 2 + 1):
       if numbers[i] == True:
@@ -115,4 +118,31 @@ class PrimeChecker(object):
       return is_prime(n)
     else:
       return n in self._prime_map
+
+class PrimeFactorsGenerator(PrimeChecker):
+  '''A prime factors generator'''
+  def seive(self):
+    self._prime_factor = []
+    for i in xrange(0, self._limit + 1):
+      self._prime_factor.append([])
+    numbers = [True] * (self._limit + 1)
+    for i in xrange(2, self._limit / 2 + 1):
+      if numbers[i] == True:
+        self._prime_factor[i].append(i)
+        j = i * 2
+        while (j <= self._limit):
+          numbers[j] = False
+          self._prime_factor[j].append(i)
+          j += i
+    # The upper part from limit/2 to limit is not calculated yet.
+    for i in xrange(self._limit / 2 + 1, self._limit + 1):
+      if not len(self._prime_factor[i]):
+        self._prime_factor[i].append(i)
     
+    for i in xrange(2, self._limit + 1):
+      if numbers[i] == True:
+        self._prime_map[i] = True
+        self._prime_list.append(i)
+  
+  def get_prime_factors(self):
+    return self._prime_factor
