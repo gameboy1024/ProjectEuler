@@ -21,7 +21,7 @@
 
   Find the value of n ≤ 1,000,000 for which n/φ(n) is a maximum.
 
-  Answer: 6531031914842725 Completed on Sun, 23 Nov 2014, 15:53
+  Answer: 510510 Completed on Tue, 2 Dec 2014, 16:33
   https://projecteuler.net/problem=69
   
   @author Botu Sun
@@ -30,38 +30,21 @@
 import math
 from lib import math_utils
 
-def has_common_elements(a, b):
-  for i in a:
-    if i in b:
-      return True
-  return False
-  
-LIMIT = 100000
+LIMIT = 1000000
 
 prime_checker = math_utils.PrimeFactorsGenerator(LIMIT)
 primes = prime_checker.get_prime_list()
 prime_factors = prime_checker.get_prime_factors()
-#~ print prime_factors
 print 'Primes generated'
-
 
 max_ratio = 0
 max_n = 0
 
 for i in xrange(2, LIMIT + 1):
-  if prime_checker.is_prime(i):
-    continue
-  count = 1
-  for j in xrange(2, i):
-    if not has_common_elements(prime_factors[i], prime_factors[j]):
-      count += 1
-      #~ print i, j
-    ratio = float(i) / count
-    if ratio < max_ratio:
-      continue
-    
+  phi = math_utils.totient(i, prime_factors[i])
+  ratio = i / float(phi)
   if ratio > max_ratio:
     max_ratio = ratio
     max_n = i
 
-print max_n
+print max_n, max_ratio

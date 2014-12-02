@@ -85,6 +85,12 @@ def is_prime(n):
       return False
   return True
 
+def totient(n, factors):
+  result = n
+  for f in factors:
+    n *= 1 - 1.0 / f
+  return int(n)
+  
 class PrimeChecker(object):
   '''A more advanced prime checker that uses elimination as base. Quicker.'''
   def __init__(self, limit):
