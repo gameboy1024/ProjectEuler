@@ -17,8 +17,8 @@
   How many elements would be contained in the set of reduced proper fractions 
   for d ≤ 1,000,000?
 
-  Answer: 428570 Completed on Wed, 3 Dec 2014, 14:04
-  https://projecteuler.net/problem=71
+  Answer: 303963552391 Completed on Wed, 3 Dec 2014, 14:18
+  https://projecteuler.net/problem=72
   
   @author Botu Sun
 '''
@@ -26,3 +26,15 @@
 import math
 from lib import math_utils
 
+
+LIMIT = 1000000
+
+prime_factors = math_utils.PrimeFactorsGenerator(LIMIT).get_prime_factors()
+
+total = 0
+
+for i in xrange(2, LIMIT + 1):
+  phi = math_utils.totient(i, prime_factors[i])
+  total += phi
+
+print total
