@@ -2,6 +2,7 @@
 '''
   Ordered fractions
   Problem 71
+  
   Consider the fraction, n/d, where n and d are positive integers. If n<d and 
   HCF(n,d)=1, it is called a reduced proper fraction.
 
@@ -24,8 +25,8 @@
 '''
 
 import math
-import sys
 from lib import math_utils
+from lib import list_utils
 
 LIMIT = 1000000
 
@@ -43,7 +44,8 @@ closest_d = 0
 for i in xrange(8, LIMIT + 1):
   for j in xrange(int(closest_f * i), int(math.ceil(target * i))):
     f = float(j) / i
-    if f > closest_f:
+    if f > closest_f and list_utils.has_common_elements_from_sorted(
+        prime_factors[i], prime_factors[j]):
       closest_f = f
       closest_n = j
       closest_d = i
