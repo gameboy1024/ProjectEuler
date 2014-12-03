@@ -92,7 +92,7 @@ def totient(n, factors):
   return int(n)
   
 class PrimeChecker(object):
-  '''A more advanced prime checker that uses elimination as base. Quicker.'''
+  '''A more advanced prime checker that uses seive.'''
   def __init__(self, limit):
     self._limit = int(limit)
     self._prime_map = {}
@@ -119,7 +119,6 @@ class PrimeChecker(object):
     return self._prime_list
   
   def is_prime(self, n):
-    # TODO: handle keyerror exception.
     if n > self._limit:
       return is_prime(n)
     else:
