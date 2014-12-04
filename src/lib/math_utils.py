@@ -29,6 +29,13 @@ def reverse_number(n):
     return int(reverse_str(str(n)))
   elif type(n) == long:
     return long(reverse_str(str(n)))
+    
+def gcd(a, b):
+  while b:
+    tmp = b
+    b = a % b
+    a = tmp
+  return a
 
 ################################################################################
 # Large number operations
