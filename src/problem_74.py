@@ -41,19 +41,19 @@ for i in xrange(1, 10):
   factorials[i] = factorials[i - 1] * i
 print factorials
 
+# loopers have predifined/cached value which minimize the calculation time.
 loopers = {145: 0, 169: 2, 871: 1, 872: 1, 40585: 0} # 40585 is also a looper.
-cache = {}
 
 count = 0
 for i in xrange(3, 1000000):
   chain = 1
   numbers = []
+  breaked = False
   while i not in loopers:
-    if i in cache:
-      chain += cache[i]
+    if i == 2: 
+      breaked = True
       break
     numbers.append(i)
-    if i == 2: break
     total = 0
     while i:
       total += factorials[i % 10]
@@ -61,13 +61,12 @@ for i in xrange(3, 1000000):
     i = total
     chain += 1
   chain += loopers.get(i, 0)
+  if breaked:
+    continue
+    
   if chain == 60:
     count += 1
-    
-  while True:
-    n = numbers.pop()
-    if n not in cache:
-      cache[n] = chain
+  
   
   
 print count
