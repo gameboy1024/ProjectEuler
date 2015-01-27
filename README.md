@@ -16,6 +16,12 @@ ProjectEuler
     Please do not read my solution before any attempt to solve the problem by yourself.
     They might not be the most efficient solution, but I make comments for what could be improved in the code where it's      possible after reading the solution pdf.
     
+- To other solvers
+
+    I found two tools to be quite useful, an Android application and a Python template/testing tool:
+    https://github.com/ccoffey/ProjectEuler
+    https://github.com/iKevinY/EulerPy
+
 - Other
 
     If you have any problem, contact me by gameboy1024@hotmail.com
