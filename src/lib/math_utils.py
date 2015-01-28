@@ -61,6 +61,21 @@ def add(a, b):
     i += 1
   return result[::-1]
   
+
+def mul(a, b):
+  '''
+  Calculate the multiplication of two large int.
+
+  Args:
+    a: a list of int, representing digits of a large int. The digits are 
+      reversed so 123 is [3, 2, 1]
+    b: same as a
+
+  Return:
+    Reversed list of digits of the multiplication.
+  '''
+  pass
+
 def power_list(a, b, reverse=False):
   result = [1]
   for i in xrange(0, b):
