@@ -12,7 +12,7 @@
   For the first one hundred natural numbers, find the total of the digital sums 
   of the first one hundred decimal digits for all the irrational square roots.
 
-  Answer: 73162890 Completed on Tue, 6 Jan 2015, 11:05
+  Answer: 40886 Completed on Wed, 28 Jan 2015, 20:52
   https://projecteuler.net/problem=80
   
   @author Botu Sun
