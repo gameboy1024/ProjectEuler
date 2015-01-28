@@ -1,19 +1,21 @@
 # -*- coding: utf-8 -*-
 '''
-  Path sum: two ways
-  Problem 81
-  In the 5 by 5 matrix below, the minimal path sum from the top left to the 
-  bottom right, by only moving to the right and down, is indicated in bold red 
-  and is equal to 2427.
+  Path sum: three ways
+  Problem 82
+  NOTE: This problem is a more challenging version of Problem 81.
 
-  [a matrix can be found on initial page]
+  The minimal path sum in the 5 by 5 matrix below, by starting in any cell in 
+  the left column and finishing in any cell in the right column, and only moving
+  up, down, and right, is indicated in red and bold; the sum is equal to 994.
+
+  [a sample matrix can be found on the original page]
 
   Find the minimal path sum, in matrix.txt (right click and "Save Link/Target 
-    As..."), a 31K text file containing a 80 by 80 matrix, from the top left to 
-  the bottom right by only moving right and down.
+  As..."), a 31K text file containing a 80 by 80 matrix, from the left column 
+  to the right column.
 
-  Answer: 427337 Completed on Wed, 28 Jan 2015, 23:42
-  https://projecteuler.net/problem=81
+  Answer: 260324 Completed on Thu, 29 Jan 2015, 00:21
+  https://projecteuler.net/problem=82
   
   @author Botu Sun
 '''
@@ -23,12 +25,14 @@ matrix = []
 matrix_sum = []
 visited = []
 visiting = []
-visiting.append((0, 0))
 
 # Initialization
-for line in open('../res/p081_matrix.txt', 'r'):
+for line in open('../res/p082_matrix.txt', 'r'):
   matrix.append([int(n) for n in line[:-1].split(',')])
 size = len(matrix)
+
+for i in xrange(0, size):
+  visiting.append((i, 0))
 
 for i in xrange(0, size):
   matrix_sum.append([0] * size)
@@ -38,12 +42,12 @@ for p in visiting:
 
 def adjacent_points(x, y):
   global size
-  # if x - 1 >= 0: # up
-  #   yield (x - 1, y)
+  if x - 1 >= 0: # up
+    yield (x - 1, y)
   if x + 1 < size: # down
     yield (x + 1, y)
   # if y - 1 >= 0: # left
-  #   yield (x, y - 1)
+    # yield (x, y - 1)
   if y + 1 < size: # right
     yield (x, y + 1)
 
@@ -70,4 +74,8 @@ while len(visiting):
     if value < matrix_sum[p[0]][p[1]]:
       matrix_sum[p[0]][p[1]] = value
 
-print matrix_sum[-1][-1]
+min = sys.maxint
+for i in xrange(0, size):
+  if matrix_sum[i][-1] < min:
+    min = matrix_sum[i][-1]
+print min

@@ -1,19 +1,21 @@
 # -*- coding: utf-8 -*-
 '''
-  Path sum: two ways
-  Problem 81
-  In the 5 by 5 matrix below, the minimal path sum from the top left to the 
-  bottom right, by only moving to the right and down, is indicated in bold red 
-  and is equal to 2427.
+  Path sum: four ways
+  Problem 83
+  NOTE: This problem is a significantly more challenging version of Problem 81.
 
-  [a matrix can be found on initial page]
+  In the 5 by 5 matrix below, the minimal path sum from the top left to the 
+  bottom right, by moving left, right, up, and down, is indicated in bold red
+  and is equal to 2297.
+
+  [a sample matrix can be found on the original page]
 
   Find the minimal path sum, in matrix.txt (right click and "Save Link/Target 
-    As..."), a 31K text file containing a 80 by 80 matrix, from the top left to 
-  the bottom right by only moving right and down.
+  As..."), a 31K text file containing a 80 by 80 matrix, from the top left to 
+  the bottom right by moving left, right, up, and down.
 
-  Answer: 427337 Completed on Wed, 28 Jan 2015, 23:42
-  https://projecteuler.net/problem=81
+  Answer: 425185 Completed on Thu, 29 Jan 2015, 00:26
+  https://projecteuler.net/problem=83
   
   @author Botu Sun
 '''
@@ -26,7 +28,7 @@ visiting = []
 visiting.append((0, 0))
 
 # Initialization
-for line in open('../res/p081_matrix.txt', 'r'):
+for line in open('../res/p083_matrix.txt', 'r'):
   matrix.append([int(n) for n in line[:-1].split(',')])
 size = len(matrix)
 
@@ -38,12 +40,12 @@ for p in visiting:
 
 def adjacent_points(x, y):
   global size
-  # if x - 1 >= 0: # up
-  #   yield (x - 1, y)
+  if x - 1 >= 0: # up
+    yield (x - 1, y)
   if x + 1 < size: # down
     yield (x + 1, y)
-  # if y - 1 >= 0: # left
-  #   yield (x, y - 1)
+  if y - 1 >= 0: # left
+    yield (x, y - 1)
   if y + 1 < size: # right
     yield (x, y + 1)
 
