@@ -113,6 +113,10 @@ def totient(n, factors):
     n *= 1 - 1.0 / f
   return int(n)
   
+def get_prime_list(limit):
+  prime_checker = PrimeChecker(limit)
+  return prime_checker.get_prime_list()
+  
 class PrimeChecker(object):
   '''A more advanced prime checker that uses seive.'''
   def __init__(self, limit):

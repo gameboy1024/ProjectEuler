@@ -21,7 +21,7 @@
   Find the least value of M such that the number of solutions first exceeds one 
   million.
 
-  Answer:
+  Answer: 1818 Completed on Sun, 29 Mar 2015, 21:50
   https://projecteuler.net/problem=86
   
   @author Botu Sun
