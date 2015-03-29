@@ -26,88 +26,23 @@
   
   @author Botu Sun
 '''
-import math
 
-def generate_triples(m):
-  # First generate all rec triangles triples.
-  triples = [(3, 4, 5)]
-  current = 0
-  newed = True
-  while newed or current < len(triples):
-    a, b, c = triples[current]
-    newed = False
-    aa = a - 2 * b + 2 * c
-    bb = 2 * a - b + 2 * c
-    cc = 2 * a - 2 * b + 3 * c
-    aaa = aa
-    bbb = bb
-    ccc = cc
-    while max(aaa, bbb) <= 2 * m and min(aaa, bbb) <= m:
-      triples.append((aaa, bbb, ccc))
-      aaa += aa
-      bbb += bb
-      ccc += cc
-      newed = True
-    aa = a + 2 * b + 2 * c
-    bb = 2 * a + b + 2 * c
-    cc = 2 * a + 2 * b + 3 * c
-    aaa = aa
-    bbb = bb
-    ccc = cc
-    while max(aaa, bbb) <= 2 * m and min(aaa, bbb) <= m:
-      triples.append((aaa, bbb, ccc))
-      aaa += aa
-      bbb += bb
-      ccc += cc
-      newed = True
-    aa = - a + 2 * b + 2 * c
-    bb = -2 * a + b + 2 * c
-    cc = -2 * a + 2 * b + 3 * c
-    aaa = aa
-    bbb = bb
-    ccc = cc
-    while max(aaa, bbb) <= 2 * m and min(aaa, bbb) <= m:
-      triples.append((aaa, bbb, ccc))
-      aaa += aa
-      bbb += bb
-      ccc += cc
-      newed = True
-    current += 1
-  return triples
+# This is not my original solution, actually I solved this problem with much
+# more sophisticated brute force solution, which is easily beaten by this one.
+# Code by mereandor on projecteuler.net
 
-def get_possible_combinations(a, b, c, m, solutions):
-  modified = False
-  if b <= m:
-    for i in xrange(1, int(a / 2) + 1):
-      solutions[tuple(sorted([i, a - i, b]))] = True
-      modified = True
-    for i in xrange(b - a, int(b / 2) + 1):
-      if i <= a and b - i <= a:
-        solutions[tuple(sorted([a, i, b - i]))] = True
-        modified = True
-  elif a <= m and b <= m * 2:
-    for i in xrange(b - m, int(b / 2) + 1):
-      if i <= a and b - i <= a:
-        solutions[tuple(sorted([a, i, b - i]))] = True
-        modified = True
-  return modified
+from itertools import count
+from math import sqrt
 
-def get_num_solutions(m, target):
-  triples = generate_triples(m)
-  solutions = {}
-  for triple in triples:
-    triple = sorted(triple)
-    a, b, c = triple
-    while get_possible_combinations(a, b, c, m, solutions):
-      a += triple[0]
-      b += triple[1]
-      c += triple[2]
-  print m, len(solutions)
-  if len(solutions) > target:
-    print m
-    exit()
-
-i = 4000
-while True:
-  get_num_solutions(i, 1000000)
-  i += 1
+x = 0
+# a is M, and the longest edge during this iteration
+for a in count(1):
+  # s is the sum of the other two edges, which cannot exceed 2a
+	for s in range(1, 2 * a + 1):
+		z = sqrt(a ** 2 + s ** 2)
+		if int(z) == z:
+		  # The possible splits is determined here, we have to be sure a is largest.
+			x += min(a, s - 1) - (s - 1) / 2
+	if x > 1000000:
+		print a, x
+		exit()
