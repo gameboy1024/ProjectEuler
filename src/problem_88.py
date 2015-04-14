@@ -26,7 +26,7 @@
   
   What is the sum of all the minimal product-sum numbers for 2≤k≤12000?
 
-  
+  Answer: 7587457 Completed on Tue, 7 Apr 2015, 15:13
   https://projecteuler.net/problem=88
   
   @author Botu Sun
